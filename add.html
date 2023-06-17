@@ -41,6 +41,7 @@
             mySelect: mySelect
         }
         tg.sendData(JSON.stringify(data));
+        console.log(JSON.parse(JSON.stringify(data)));
         tg.close();
     });
   </script>
