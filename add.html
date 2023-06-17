@@ -20,7 +20,7 @@
       <option value="Option 2">Option 2</option>
     </select>
 
-    <button id="send" type="submit">Send</button>
+    <button id="send" type="button">Send</button>
   </form>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <script>
@@ -30,19 +30,19 @@
     tg.expand();
 
     send.addEventListener("click", () => {
-        let rb1 = document.getElementById("rb1").value();
-        let rb2 = document.getElementById("rb2").value();
-        let text = document.getElementById("text").value();
-        let mySelect = document.getElementById("mySelect").value();
+        let rb1 = document.getElementById("rb1").value;
+        let rb2 = document.getElementById("rb2").value;
+        let text = document.getElementById("text").value;
+        let mySelect = document.getElementById("mySelect").value;
         let data = {
             rb1: rb1,
             rb2: rb2,
             text: text,
             mySelect: mySelect
         }
-        tg.sendData(JSON.stringify(data));
+        //tg.sendData(JSON.stringify(data));
         console.log(JSON.parse(JSON.stringify(data)));
-        tg.close();
+        //tg.close();
     });
   </script>
 </body>
