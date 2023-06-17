@@ -6,13 +6,13 @@
 <body>
   <form id="myForm">
     <label>
-      <input type="radio" name="radioBtn" value="Option 1"> Option 1
+      <input id="rb1" type="radio" name="radioBtn" value="Option 1"> Option 1
     </label>
     <label>
-      <input type="radio" name="radioBtn" value="Option 2"> Option 2
+      <input id="rb2" type="radio" name="radioBtn" value="Option 2"> Option 2
     </label>
     
-    <input type="text" id="myText" name="myText" placeholder="Enter text here">
+    <input id="text" type="text" id="myText" name="myText" placeholder="Enter text here">
 
     <select id="mySelect" name="mySelect">
       <option value="">Select...</option>
@@ -26,7 +26,21 @@
   <script>
     let tg = window.Telegram.WebApp;
     let send = document.getElementById("send");
+
+    tg.expand();
+
     send.addEventListener("click", () => {
+        let rb1 = document.getElementById("rb1").value();
+        let rb2 = document.getElementById("rb2").value();
+        let text = document.getElementById("text").value();
+        let mySelect = document.getElementById("mySelect").value();
+        let data = {
+            rb1: rb1,
+            rb2: rb2,
+            text: text,
+            mySelect: mySelect
+        }
+        tg.sendData(JSON.stringify(data));
         tg.close();
     });
   </script>
