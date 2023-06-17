@@ -20,7 +20,15 @@
       <option value="Option 2">Option 2</option>
     </select>
 
-    <button type="submit">Send</button>
+    <button id="send" type="submit">Send</button>
   </form>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script>
+    let tg = window.Telegram.WebApp;
+    let send = document.getElementById("send");
+    send.addEventListener("click", () => {
+        tg.close();
+    });
+  </script>
 </body>
 </html>
